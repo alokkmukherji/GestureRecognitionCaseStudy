@@ -32,17 +32,27 @@ The gestures are continuously monitored by the webcam mounted on the TV. Each ge
 
 The task is to train a model on the 'train' folder which performs well on the 'val' folder as well (as usually done in ML projects). There is the test folder for evaluation purposes - the final model's performance will be tested on the 'test' set.
 
-### Objectives:
-1. **Generator**:  The generator should be able to take a batch of videos as input without any error. Steps like cropping, resizing and normalization should be performed successfully.
+### Model Training
+* Used CONV3D Arch
+* Experimented with different model configurations, hyper-parameters, various iterations and combinations of batch sizes, image dimensions, etc.
+* Used Adam () as it led to improvement in model’s accuracy by rectifying high variance in the model’s parameters. 
+* Used Batch Normalization, pooling and dropout layers when our model started to overfit.
 
-2. **Model**: Develop a model that is able to train without any errors which will be judged on the total number of parameters (as the inference(prediction) time should be less) and the accuracy achieved. As suggested by Snehansu, start training on a small amount of data and then proceed further.
+### Data Generator / Model Class
+Created a Model Class which will perform the following:
+ * All the initialisations of paths, image properties and model properties
+ *	Generator function for generating the data with labels
+     * The images will be cropped to the size we want
+     * The images with irregular dimension will be centre cropped on the x-axis equally on both sides
+     * We save the model only when the validation loss decreases
+     * Learning rate decreases when approaching the minima
+ * A generic train functions.
+ * Plotting the model
+ * An abstract method to define our own model by inheriting this class
 
-3. **Write up**: This should contain the detailed procedure followed in choosing the final model. The write up should start with the reason for choosing the base model, then highlight the reasons and metrics taken into consideration to modify and experiment to arrive at the final model.
 
+### Result Summary
+The model 3 is showing the best performance and so it has been considered as final model
 
-### Results:
-
-![observations](https://user-images.githubusercontent.com/29462447/86066095-d501aa80-ba8e-11ea-82d8-4681e20e310e.png)
-
-I choose CNN+LSTM based model as the final choice due to fairly decent accuracy considering the type of data as well the no. of parameters as I wanted my model to be light weight in nature.
+![image](https://github.com/alokkmukherji/GestureRecognitionCaseStudy/assets/140543380/232d845a-7318-40f6-9fb7-16aaac47ff11)
 
