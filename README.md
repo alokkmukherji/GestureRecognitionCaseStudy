@@ -1,6 +1,6 @@
 # Gesture Recognition Case study 
 
- By Aloke Kumar Mukherjee (alokkmukherjee@gmail.com)
+ By Aloke Kumar Mukherjee (alokkmukherji@gmail.com)
 
 
 ### Problem Statement
